@@ -17,6 +17,15 @@
  @import "bootstrap";
  @import "*";
 
- body {
-   font-family: Helvetica, sans-serif;
- }
+.jumbotron {
+  // position: fixed;
+}
+
+footer {
+  color: rgb(194, 194, 194);
+  background-color: rgb(56, 56, 56);
+  padding: 15px;
+  p {
+    margin: 0;
+  }
+}
