@@ -9,6 +9,21 @@
   </head>
 
   <body>
+    <%= render partial: "navbar" %>
+
     <%= yield %>
+
+    <footer>
+      <div class="container-fluid">
+        <div class="col-xs-6">
+
+        </div>
+        <div class="col-xs-6">
+          <p class="text-right">
+            This is an <em>awesome</em> footer.
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

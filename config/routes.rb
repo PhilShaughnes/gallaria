@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'galleries#landing'
+
   resources :galleries do
     resources :photos
   end
