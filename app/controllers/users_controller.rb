@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.new(user_params)
     if @user.save
       UserMailer.signup(@user).deliver
@@ -14,6 +13,16 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+
+  def find_user
+    @user = User.find(params[:id]) if params[:id]
+  end
+
+  def user_params
+    params.require(:user).permit(:username, :password, :email)
   end
 
 end
