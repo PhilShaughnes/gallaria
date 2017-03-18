@@ -1,0 +1,9 @@
+<h1>Please Sign In:</h1>
+
+<div class="col-sm-4 col-xs-8">
+  <%= simple_form_for :session do |f|%>
+    <%= f.input :username %>
+    <%= f.input :password%>
+    <%= f.button :submit, "Login", class: "btn btn-primary"%>
+  <% end %>
+</div>

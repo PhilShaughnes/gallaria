@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gallaria</title>
+    <title>Captured</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,10 +11,10 @@
   <body>
     <%= render partial: "navbar" %>
     <div class="container">
-      
-    <%= yield %>
-    </div>
 
+      <%= yield %>
+
+    </div>
     <footer>
       <div class="container-fluid">
         <div class="col-xs-6">

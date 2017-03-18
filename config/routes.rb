@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
   resources :users
 
-  get "/login" => 'sessions#new', as: :login
-  post "/login" => 'sessions#create'
-  delete "/logout" => 'sessions#destroy', as: :logout
+  get "/login" => 'session#new', as: :login
+  post "/login" => 'session#create'
+  delete "/logout" => 'session#destroy', as: :logout
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

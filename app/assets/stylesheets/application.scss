@@ -17,8 +17,25 @@
  @import "bootstrap";
  @import "*";
 
+ html,body{
+    height: 100%
+}
+
+.container {
+  min-height: 90%;
+}
+
 .jumbotron {
+  margin-top: -20px;
+  color: rgb(184, 184, 184);
   // position: fixed;
+  background-image: image-url("blue");
+  background-size: cover;
+
+  em {
+    letter-spacing: 5px;
+    font-weight: 500;
+  }
 }
 
 footer {
