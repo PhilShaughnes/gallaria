@@ -6,11 +6,12 @@
     <p class="text-right">ALL YOUR GALLARY ARE MINE!</p>
     <p>
       <% if current_user%>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Your Gallaries</a>
-        <a class="btn btn-success btn-lg" href="#" role="button">Browse Users</a>
+        <%= link_to "Your Galleries", user_path(current_user), role: "button", class: "btn btn-primary btn-lg" %>
+        <%= link_to "Browse Users", users_path, role: "button", class: "btn btn-success btn-lg" %>
+
       <% else %>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Sign In</a>
-        <a class="btn btn-success btn-lg" href="#" role="button">Sign Up</a>
+        <%= link_to "Sign In", login_path, role: "button", class: "btn btn-primary btn-lg" %>
+        <%= link_to "Sign Up", new_user_path, role: "button", class: "btn btn-success btn-lg" %>
       <% end %>
     </p>
   </div>
