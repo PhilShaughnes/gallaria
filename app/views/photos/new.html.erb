@@ -1,0 +1,9 @@
+<h1>Create a new photo:</h1>
+
+<div class="col-sm-4 col-xs-8">
+  <%= simple_form_for [@gallery, @photo] do |f|%>
+    <%= f.input :caption, as: :text %>
+    <%= f.input :img %>
+    <%= f.button :submit, "Add the photo!", class: "btn btn-primary"%>
+  <% end %>
+</div>

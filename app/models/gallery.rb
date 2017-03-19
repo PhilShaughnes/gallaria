@@ -1,12 +1,15 @@
 class Gallery < ApplicationRecord
+
+  has_many :photoings
   belongs_to :user
   has_many :photos, through: :photoings
-  has_many :photoings
 
   validates :name, presence: true
 
+  default_scope { order(created_at: :desc) }
+
   def pic
-    photos.first && photos.first.url? ? photos.first.url : "https://dummyimage.com/242x200/333333/fff.png&text=No+Photos!"
+    photos.first && photos.first.img? ? photos.first.img : "https://dummyimage.com/242x200/333333/fff.png&text=No+Photos!"
   end
 
   def is_owner?(other_user)

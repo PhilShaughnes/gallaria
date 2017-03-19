@@ -3,7 +3,7 @@
   <p class="text-muted">by <%= link_to @gallery.user.username, @gallery.user %></p>
 </div>
   <hr>
-<div class="row">
+<div class="row actions">
   <% if @gallery.is_owner?(current_user) %>
 
     <%= link_to  new_gallery_photo_path(@gallery), title: "share", class: "btn btn-info btn-sm" do%>
