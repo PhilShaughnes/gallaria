@@ -3,6 +3,7 @@ class Photo < ApplicationRecord
 
   belongs_to :user
   has_many :galleries, through: :photoings
+  has_many :photoings
 
   validates :url, presence: true
 
