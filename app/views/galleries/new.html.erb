@@ -1,0 +1,8 @@
+<h1>Create a new gallery:</h1>
+
+<div class="col-sm-4 col-xs-8">
+  <%= simple_form_for @gallery do |f|%>
+    <%= f.input :name %>
+    <%= f.button :submit, "Create!", class: "btn btn-primary"%>
+  <% end %>
+</div>

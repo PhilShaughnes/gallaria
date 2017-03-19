@@ -21,18 +21,5 @@
   <hr>
 </div>
 <div class="row">
-  <% @galleries.each do |g| %>
-  <% %>
-    <div class="col-xs-6 col-md-3">
-        <div class="thumbnail">
-          <%= link_to image_tag(g.pic), gallery %>
-          <div class="caption">
-            <h3><%= g.name %></h3>
-            <p>...</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-          </div>
-        </div>
-    </div>
-  <% end %>
-
+  <%= render @galleries %>
 </div>

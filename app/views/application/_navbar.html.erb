@@ -33,14 +33,15 @@
         </li> -->
         <% if current_user %>
           <li><div class="btn-group btn-group-md">
-             <%= link_to  gallery_path(current_user),title: "My Galleries", class: "btn btn-primary navbar-btn" do%>
+
+            <%= link_to  user_path(current_user),title: "My Galleries", class: "btn btn-primary navbar-btn" do%>
                 <i class="glyphicon glyphicon-th"></i>
-              <% end %>
+            <% end %>
             <%= link_to 'Signout', logout_path, method: :delete, class: "btn btn-info navbar-btn" %>
           </div></li>
         <% else %>
           <li><div class="btn-group btn-group-md">
-             <%= link_to 'Sign Up', new_user_path, class: "btn btn-primary navbar-btn" %>
+            <%= link_to 'Sign Up', new_user_path, class: "btn btn-primary navbar-btn" %>
             <%= link_to 'Sign In', login_path, class: "btn btn-info navbar-btn" %>
           </div></li>
         <% end %>
@@ -48,3 +49,8 @@
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
+<% flash.each do |k,v|%>
+  <div class="alert alert-<%= k %> text-center" role="alert">
+    <p><%= v %></p>
+  </div>
+<% end if flash.any? %>

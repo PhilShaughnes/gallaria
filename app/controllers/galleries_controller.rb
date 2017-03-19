@@ -1,7 +1,13 @@
 class GalleriesController < ApplicationController
 
+  before_action :find_gallery, only: [:show]
+  before_action :require_user, only: [:new, :create]
   def index
     @galleries = Gallery.all
+  end
+
+  def show
+    @photos = @gallery.photos
   end
 
   def new
@@ -15,6 +21,7 @@ class GalleriesController < ApplicationController
     else
       render :new
     end
+
   end
 
   private

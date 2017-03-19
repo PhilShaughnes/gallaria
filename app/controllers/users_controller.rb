@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
 
+  before_action :find_user, only: [:show]
+
+
+  def show
+    @galleries = @user.galleries
+  end
+
   def new
     @user = User.new
   end

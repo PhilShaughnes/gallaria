@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1>
+      <%= current_user ? "Your" : "#{@user.username}\'s" if @user%> Galleries
+    </h1>
+  </div>
+  <div class="col-sm-6 text-right">
+    <h1>
+    <% if current_user%>
+      <%= link_to  new_gallery_path, title: "New Gallery", class: "btn btn-success" do%>
+         <i class="glyphicon glyphicon-plus"></i>
+      <% end %>
+    <% end %>
+    </h1>
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <%= render @galleries %>
+</div>
