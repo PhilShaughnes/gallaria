@@ -1,0 +1,26 @@
+<div class="row text-center">
+  <h1><%= @gallery.name %> </h1>
+  <p class="text-muted">by <%= link_to @gallery.user.username, @gallery.user %></p>
+</div>
+  <hr>
+<div class="row">
+  <% if @gallery.is_owner?(current_user) %>
+
+    <%= link_to  new_gallery_photo_path(@gallery), title: "share", class: "btn btn-info btn-sm" do%>
+       <i class="glyphicon glyphicon-share"></i>
+    <% end %>
+
+    <%= link_to  new_gallery_photo_path(@gallery), title: "New Photo", class: "btn btn-success btn-sm" do%>
+       <i class="glyphicon glyphicon-plus"></i>
+    <% end %>
+
+    <%= link_to gallery_path, methode: "delete", title: "Delete", class: "btn btn-danger btn btn-sm" do%>
+       <i class="glyphicon glyphicon-remove"></i>
+    <% end %>
+
+  <% end %>
+</div>
+
+<div class="row">
+  <%= render @photos %>
+</div>

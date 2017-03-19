@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-sm-6">
     <h1>
-      <%= current_user ? "Your" : "#{@user.username}\'s" if @user%> Galleries
+      <%= current_user == @user ? "Your" : "#{@user.username}\'s" if @user%> Galleries
     </h1>
   </div>
   <div class="col-sm-6 text-right">
     <h1>
-    <% if current_user%>
+    <% if current_user == @user %>
       <%= link_to  new_gallery_path, title: "New Gallery", class: "btn btn-success" do%>
          <i class="glyphicon glyphicon-plus"></i>
       <% end %>

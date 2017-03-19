@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.signup(@user).deliver
       session[:user_id] = @user.id
-      redirect_to @user.galleries
+      redirect_to user_path
     else
       render :new
     end
