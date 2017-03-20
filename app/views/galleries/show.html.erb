@@ -14,7 +14,7 @@
        <i class="glyphicon glyphicon-plus"></i> Add Photo
     <% end %>
 
-    <%= link_to gallery_path(@gallery), method: "delete", title: "Delete", class: "btn btn-danger btn btn-sm" do%>
+    <%= link_to gallery_path(@gallery), method: "delete", title: "Delete", class: "btn btn-danger btn btn-sm", data: {confirm: "are you sure you want to delete this gallery?"} do%>
        <i class="glyphicon glyphicon-remove"></i> Delete Gallery
     <% end %>
 

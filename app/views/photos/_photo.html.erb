@@ -8,7 +8,7 @@
       <hr class="photo">
       <h4 class="text-right">
         <% if photo.is_owner?(current_user)%>
-          <%= link_to gallery_photo_path(@gallery, photo), method: "delete", title: "Delete", class: "btn btn-danger btn btn-sm" do%>
+          <%= link_to gallery_photo_path(@gallery, photo), method: "delete", title: "Delete", class: "btn btn-danger btn btn-sm", data: {confirm: "are you sure you want to remove this photo?"} do%>
              <i class="glyphicon glyphicon-remove"></i>
           <% end %>
         <% end %>
