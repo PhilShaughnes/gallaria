@@ -25,6 +25,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def share
+    @object = case
+    when params[:photo_id] then Photo.find(params[:photo_id])
+    when params[:gallery_id] then Gallery.find(params[:gallery_id])
+    end
+    UserMailer.share(@object, params[:email]).deliver
+  end
+
   private
 
   def find_user

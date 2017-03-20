@@ -5,17 +5,17 @@
   <hr>
 <div class="row actions">
   <%= link_to  new_gallery_photo_path(@gallery), title: "share", class: "btn btn-info btn-sm" do%>
-     <i class="glyphicon glyphicon-share"></i>
+     <i class="glyphicon glyphicon-share"></i> Share
   <% end %>
 
   <% if @gallery.is_owner?(current_user) %>
 
     <%= link_to  new_gallery_photo_path(@gallery), title: "New Photo", class: "btn btn-success btn-sm" do%>
-       <i class="glyphicon glyphicon-plus"></i>
+       <i class="glyphicon glyphicon-plus"></i> Add Photo
     <% end %>
 
-    <%= link_to gallery_path, methode: "delete", title: "Delete", class: "btn btn-danger btn btn-sm" do%>
-       <i class="glyphicon glyphicon-remove"></i>
+    <%= link_to gallery_path(@gallery), method: "delete", title: "Delete", class: "btn btn-danger btn btn-sm" do%>
+       <i class="glyphicon glyphicon-remove"></i> Delete Gallery
     <% end %>
 
   <% end %>

@@ -1,7 +1,7 @@
 class GalleriesController < ApplicationController
 
-  before_action :find_gallery, only: [:show]
-  before_action :require_user, only: [:new, :create]
+  before_action :find_gallery, only: [:show, :destroy]
+  before_action :require_user, only: [:new, :create, :destroy]
   def index
     @galleries = Gallery.all
   end
@@ -21,6 +21,11 @@ class GalleriesController < ApplicationController
     else
       render :new
     end
+
+  def destroy
+    @gallery.destroy
+    redirect_to user_path(current_user)
+  end
 
   end
 

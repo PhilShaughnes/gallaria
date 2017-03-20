@@ -1,0 +1,12 @@
+
+<h1>Check this out!</h1>
+
+<% if @object.class.name == "Gallery" %>
+  <p>Check out this <%= link_to "awesome Gallery", gallery_url(@object)%> on <strong>Captured</strong>!</p>
+  <p>
+<% else %>
+  <p>Check out this <%= link_to "awesome Photo", gallery_photo_url(@object.galleries.first, @object)%> on <strong>Captured</strong>!</p>
+<% end %>
+<p>
+  You can visit us anytime at <%= link_to "Our site", root_url %>.
+</p>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :users
 
+  post "/share/:id" => 'users#share', as: :share
   get "/login" => 'session#new'
   post "/login" => 'session#create'
   delete "/logout" => 'session#destroy'

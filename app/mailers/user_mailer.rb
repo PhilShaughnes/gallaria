@@ -5,9 +5,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: "welcome!")
   end
 
-  def share(gallery, email)
-    @gallery = gallery
-    mail(to: email, subject: "check out this awesome gallery: #{@gallery.name}")
+  def share(object, email)
+    @object = object
+    mail(to: email, subject: "check out this awesome #{@object.class.name}!")
   end
 
 end

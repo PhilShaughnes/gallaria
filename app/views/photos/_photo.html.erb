@@ -7,9 +7,14 @@
 
       <hr class="photo">
       <h4 class="text-right">
-        <%= link_to '#', title: "share" do%>
-         <i class="glyphicon glyphicon-share btn btn-default"></i>
-         <% end %>
+        <% if photo.is_owner?(current_user)%>
+          <%= link_to gallery_photo_path(@gallery, photo), method: "delete", title: "Delete", class: "btn btn-danger btn btn-sm" do%>
+             <i class="glyphicon glyphicon-remove"></i>
+          <% end %>
+        <% end %>
+        <%= link_to '#', title: "share", class: "btn btn-info btn-sm" do%>
+          <i class="glyphicon glyphicon-share"></i>
+        <% end %>
       </h4>
     </div>
   </div>

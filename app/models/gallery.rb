@@ -15,4 +15,8 @@ class Gallery < ApplicationRecord
   def is_owner?(other_user)
     user == other_user
   end
+
+  def url
+    gallery_url(self)
+  end
 end
