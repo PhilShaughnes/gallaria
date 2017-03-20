@@ -4,6 +4,7 @@
   <%= simple_form_for [@gallery, @photo] do |f|%>
     <%= f.input :caption, as: :text %>
     <%= f.input :img %>
+    <%= f.input :more, as: :boolean %>
     <%= f.button :submit, "Add the photo!", class: "btn btn-primary"%>
   <% end %>
 </div>

@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   root 'galleries#index'
 
   resources :galleries do
-    resources :photos
+    resources :shares, only: [:new, :create]
+    resources :photos do
+      resources :shares, only: [:new, :create]
+    end
   end
   resources :users
 
-  post "/share/:id" => 'users#share', as: :share
   get "/login" => 'session#new'
   post "/login" => 'session#create'
   delete "/logout" => 'session#destroy'

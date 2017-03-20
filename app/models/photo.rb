@@ -1,4 +1,6 @@
 class Photo < ApplicationRecord
+
+  attr_accessor :more
   mount_uploader :img, PhotoUploader
 
   has_many :photoings, dependent: :destroy
