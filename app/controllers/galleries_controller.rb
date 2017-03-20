@@ -24,6 +24,7 @@ class GalleriesController < ApplicationController
 
   def destroy
     @gallery.destroy
+    flash[:warning] = "Gallery deleted!"
     redirect_to user_path(current_user)
   end
 

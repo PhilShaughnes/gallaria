@@ -16,7 +16,4 @@ class Gallery < ApplicationRecord
     user == other_user
   end
 
-  def url
-    gallery_url(self)
-  end
 end

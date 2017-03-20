@@ -4,9 +4,8 @@
 </div>
   <hr>
 <div class="row actions">
-  <%= link_to  new_gallery_photo_path(@gallery), title: "share", class: "btn btn-info btn-sm" do%>
-     <i class="glyphicon glyphicon-share"></i> Share
-  <% end %>
+
+  <%= render "share", locals: {url: gallery_shares_path(@gallery), icon: false} %>
 
   <% if @gallery.is_owner?(current_user) %>
 

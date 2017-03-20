@@ -3,12 +3,9 @@
     <%= link_to image_tag(gallery.pic), gallery, target: "_blank" %>
     <div class="caption">
       <h4 class="text-center">
-        <%= link_to '#', title: "share" do%>
-         <i class="glyphicon glyphicon-share"></i>
-         <% end %> <%= gallery.name %>
+        <%= render "share", locals: {url: gallery_shares_path(gallery), icon: true} %> <%= gallery.name %>
       </h4>
-      <p class="text-right by">by <%= link_to gallery.user.username, gallery.user %>
-
+      <p class="text-right by">created <%= distance_of_time_in_words(gallery.created_at, Time.new) %> ago by <%= link_to gallery.user.username, gallery.user %>
      </p>
 
     </div>

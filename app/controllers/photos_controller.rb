@@ -1,11 +1,10 @@
 class PhotosController < ApplicationController
 
-  before_action :find_photo, only: [:show, :destroy]
-  before_action :find_gallery, only: [:new, :create, :destroy]
-  before_action :require_user, only: [:new, :create, :destroy]
+  before_action :find_photo, only: [:show, :destroy, :edit, :update]
+  before_action :find_gallery, :require_user, only: [:new, :create, :destroy, :edit, :update]
+
 
   def show
-
   end
 
   def new
@@ -31,9 +30,18 @@ class PhotosController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @photo.update(photo_params) ? redirect_to(gallery_path(@gallery)) : render(:edit)
+
+  end
+
   def destroy #removes the photo from the gallery. only destorys it if it's the last one.
     Photoing.where(photo: @photo, gallery: @gallery).first.destroy
     @photo.destroy if @photo.galleries.empty?
+    flash[:warning] = "Photo removed from gallery!"
     redirect_to gallery_path(params[:gallery_id])
   end
 

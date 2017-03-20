@@ -4,6 +4,7 @@
     <%= link_to image_tag(photo.img.versions[:standard].url), "##{index}", data: {toggle: "modal"} %>
     <div class="caption photo">
       <p><%= simple_format photo.caption %></p>
+      <p class="text-right by">created <%= distance_of_time_in_words(photo.created_at, Time.new) %> ago</p>
 
       <hr class="photo">
       <h4 class="text-right">
@@ -12,9 +13,7 @@
              <i class="glyphicon glyphicon-remove"></i>
           <% end %>
         <% end %>
-        <%= link_to '#', title: "share", class: "btn btn-info btn-sm" do%>
-          <i class="glyphicon glyphicon-share"></i>
-        <% end %>
+        <%= render "share", locals: {url: gallery_photo_shares_path(@gallery, photo), icon: true} %>
       </h4>
     </div>
   </div>
@@ -24,7 +23,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id=<%= index %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="<%= index %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

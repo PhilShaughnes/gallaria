@@ -1,38 +1,28 @@
-<div>
-  <%= simple_form_for :share, url: @url do |f| %>
-    <%= f.input :email, as: :string %>
-    <%= f.button :submit, "send!", class: "btn btn-primary" %>
-  <% end %>
+<%= link_to "#share", title: "share", class: "btn btn-info btn-sm", data: {toggle: "modal"} do%>
+   <i class="glyphicon glyphicon-share"></i> <%= "Share" unless locals[:icon] %>
+<% end %>
+
+
+<!-- gallery_photo_shares_path(gallery)
+gallery_photo_shares_path(@gallery)
+gallery_photo_shares_path(@gallery, photo) -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Enter Email to share with:</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :share, url: locals[:url] do |f| %>
+          <%= f.input :email, as: :string %>
+          <%= f.button :submit, "send!", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
 </div>
-
-
-
-
-<!-- class ShareController < ApplicationController
-
-  before_action :find_post
-
-  def create
-    flash[:success] = "shared!"
-    puts share_params[:email]
-    p share_params[:email]
-    UserMailer.share(@post, share_params[:email]).deliver
-    redirect_to @post
-  end
-
-  def new
-    flash[:share] = "enter email to share with!"
-    redirect_to @post
-  end
-
-  private
-
-  def share_params
-    params.require(:share).permit(:email)
-  end
-
-  def find_post
-    @post = params[:id] ? Post.find(params[:id]) : nil #Post.first
-  end
-
-end -->
