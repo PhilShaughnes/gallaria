@@ -9,7 +9,7 @@ class Gallery < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
   def pic
-    photos.first && photos.first.img? ? photos.first.img : "https://dummyimage.com/242x200/333333/fff.png&text=No+Photos!"
+    photos.first && photos.first.img? ? photos.first.img.versions[:standard].url : "https://dummyimage.com/242x200/333333/fff.png&text=No+Photos!"
   end
 
   def is_owner?(other_user)

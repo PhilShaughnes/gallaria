@@ -1,7 +1,10 @@
 class PhotosController < ApplicationController
 
+  before_action :find_photo, only: [:show]
 
-  def show; end
+  def show
+    
+  end
 
   def new
     @gallery = Gallery.find(params[:gallery_id])
