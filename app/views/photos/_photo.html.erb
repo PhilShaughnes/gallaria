@@ -16,7 +16,7 @@
              <i class="glyphicon glyphicon-edit"></i>
           <% end %>
         <% end %>
-        <%= render "share", locals: {url: gallery_photo_shares_path(@gallery, photo), icon: true} %>
+        <%= render "share", locals: {url: gallery_photo_shares_path(@gallery, photo), icon: true, num: index} %>
       </h4>
     </div>
   </div>

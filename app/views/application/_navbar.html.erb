@@ -18,9 +18,8 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "All Users", users_path %></li>
         <li><%= link_to "All Galleries", galleries_path %></li>
-      </ul>
 
-      <ul class="nav navbar-nav navbar-right">
+
         <!-- <li>
           <form class="navbar-form" role="search">
           <div class="input-group">
@@ -31,6 +30,12 @@
           </div>
           </form>
         </li> -->
+      </ul>
+
+
+
+      <ul class="nav navbar-nav navbar-right">
+
         <% if current_user %>
           <li><%= link_to "Signed in as #{current_user.username}", user_path(current_user) %></li>
           <li><div class="btn-group btn-group-md">

@@ -1,13 +1,13 @@
 <div class="col-xs-6 col-md-3">
   <div class="thumbnail">
+    <%index = @galleries.index(gallery) %>
     <%= link_to image_tag(gallery.pic), gallery, target: "_blank" %>
     <div class="caption">
       <h4 class="text-center">
-        <%= render "share", locals: {url: gallery_shares_path(gallery), icon: true} %> <%= gallery.name %>
+        <%= render "share", locals: {url: gallery_shares_path(gallery), icon: true, num: index} %> <%= gallery.name %>
       </h4>
       <p class="text-right by">created <%= distance_of_time_in_words(gallery.created_at, Time.new) %> ago by <%= link_to gallery.user.username, gallery.user %>
      </p>
-
     </div>
   </div>
 </div>
