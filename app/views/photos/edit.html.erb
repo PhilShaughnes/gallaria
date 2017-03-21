@@ -1,0 +1,13 @@
+<h1>Edit photo:</h1>
+
+<div class="col-sm-4 col-xs-8">
+  <%= simple_form_for [@gallery, @photo] do |f|%>
+    <%= f.input :caption, as: :text %>
+    <%= f.input :galleries, label: "add to another gallery:", collection: current_user.galleries%>
+    <%= f.button :submit, "Edit the photo!", class: "btn btn-primary"%>
+  <% end %>
+</div>
+
+<div class="col-sm-6 col-xs-8">
+  <%= image_tag(@photo.img.versions[:standard].url, class: "thumbnail") %>
+</div>

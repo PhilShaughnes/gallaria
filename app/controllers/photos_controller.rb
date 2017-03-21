@@ -4,8 +4,7 @@ class PhotosController < ApplicationController
   before_action :find_gallery, :require_user, only: [:new, :create, :destroy, :edit, :update]
 
 
-  def show
-  end
+  def show; end
 
   def new
     @photo = Photo.new
@@ -20,22 +19,17 @@ class PhotosController < ApplicationController
        else
          redirect_to(@gallery)
        end
-
     else
-      puts "*****************not_saved************************"
-      p @photo
-      p @photo.errors.full_messages
-      puts "*************not_saved*****************************"
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    @photo.update(photo_params) ? redirect_to(gallery_path(@gallery)) : render(:edit)
-
+    Gallery.find(params[:photo][:galleries]).photos << @photo unless params[:photo][:galleries].empty?
+    @photo.update(photo_params)
+    redirect_to(gallery_path(@gallery))
   end
 
   def destroy #removes the photo from the gallery. only destorys it if it's the last one.

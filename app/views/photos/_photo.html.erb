@@ -12,6 +12,9 @@
           <%= link_to gallery_photo_path(@gallery, photo), method: "delete", title: "Delete", class: "btn btn-danger btn btn-sm", data: {confirm: "are you sure you want to remove this photo?"} do%>
              <i class="glyphicon glyphicon-remove"></i>
           <% end %>
+          <%= link_to edit_gallery_photo_path(@gallery, photo), title: "Edit", class: "btn btn-success btn btn-sm" do%>
+             <i class="glyphicon glyphicon-edit"></i>
+          <% end %>
         <% end %>
         <%= render "share", locals: {url: gallery_photo_shares_path(@gallery, photo), icon: true} %>
       </h4>
