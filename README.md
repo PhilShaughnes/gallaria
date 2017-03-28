@@ -1,6 +1,6 @@
 # README
 
-##Welcome to _Captured_!
+## Welcome to _Captured_!
 
 This is a photo gallery app built as a weekend project for The Iron Yard.
 Note that we have not delved into javascript (modal windows via bootstrap was a challenge feature).
